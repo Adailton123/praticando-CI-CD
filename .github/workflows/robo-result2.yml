@@ -1,0 +1,18 @@
+name: Corretor Automatico
+
+on: [pull_request]
+
+jobs:
+  correcao:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixando código do aluno
+        uses: actions/checkout@v4
+
+      - name: Configurando Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Executando Teste do Professor
+        run: node test.js
